@@ -2,7 +2,7 @@
 
 neuron::neuron(vector<float*>* weights,float* bias)
 {
-        setWeights(*weights);
+        setWeights(weights);
         setBias(bias);
 }
 
@@ -23,12 +23,13 @@ neuron::~neuron()
 {
 }
 
-void neuron::setWeights(vector<float*> w)
+void neuron::setWeights(vector<float*>* w)
 {
-        Weights.resize(w.size());
-	for (int i = 0; i < w.size(); i++)
+        Weights.resize(w->size());
+	for (int i = 0; i < w->size(); i++)
 	{
-		Weights[i] = *w[i];
+            
+		Weights[i] = *(*w)[i];
 	}
 }
 

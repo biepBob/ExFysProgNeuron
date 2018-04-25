@@ -4,12 +4,10 @@
 int main(){
     float x = 0;
     float y = 1;
-    //float* px = &x; 
-    //float* py = &y;
-    //neuron pi(2);
+    neuron pi(2);
 
-    //cout << pi.resultFunc({&x,&y}) << endl;
-    //cout << *pi.resultFunc({&x,&y}) << endl;
+    cout << pi.resultFunc({&x,&y}) << endl;
+    cout << *pi.resultFunc({&x,&y}) << endl;
 
     float xx = 0;
     float yy = 1;
@@ -19,6 +17,7 @@ int main(){
     float bb = 0.7;
     neuron po(&www, &bb);
     cout <<*po.resultFunc({&xx,&yy,&zz}) << endl;
+    cout <<(*po.getWeights())[1] << endl;
 
     return 0;
 }

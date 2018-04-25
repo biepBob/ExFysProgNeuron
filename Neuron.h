@@ -12,7 +12,7 @@ public:
 	neuron(vector<float*>* weights,float* bias); //Constructor1, weight provided
 	neuron(int); //Constructor2, no weight provided, start of the program
 	~neuron(); //Destructor
-	void setWeights(vector<float*>); //Sets provided weights to vector Weights
+	void setWeights(vector<float*>*); //Sets provided weights to vector Weights
 	void setBias(float*); //Sets provided bias to variable Bias
 
 	vector<float>* getWeights(); //get-function to access weights

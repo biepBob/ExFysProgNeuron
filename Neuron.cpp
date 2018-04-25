@@ -1,6 +1,6 @@
 #include "Neuron.h"
 
-neuron::neuron(vector<float*> weights,float* bias)
+neuron::neuron(vector<fp> weights,fp bias)
 {
         setWeights(weights);
         setBias(bias);
@@ -23,7 +23,7 @@ neuron::~neuron()
 {
 }
 
-void neuron::setWeights(vector<float*> w)
+void neuron::setWeights(vector<fp> w)
 {
         Weights.resize(w.size());
 	for (int i = 0; i < (int) w.size(); i++)
@@ -32,14 +32,14 @@ void neuron::setWeights(vector<float*> w)
 	}
 }
 
-void neuron::setBias(float* b)
+void neuron::setBias(fp b)
 {
         Bias = *b;
 }
 
-vector<float*> neuron::getWeights()
+vector<fp> neuron::getWeights()
 {
-    vector<float*> TempWeights(Weights.size());
+    vector<fp> TempWeights(Weights.size());
     for (int i = 0; i < (int) Weights.size(); i++)
 	{
 		TempWeights[i] = &Weights[i];
@@ -47,7 +47,7 @@ vector<float*> neuron::getWeights()
     return TempWeights;
 }
 
-float* neuron::getBias()
+fp neuron::getBias()
 {
         return &Bias;
 }
@@ -57,19 +57,19 @@ const int neuron::getNumberOfInputs()
         return Weights.size();
 }
 
-float neuron::sigmoid(float z)
+flo neuron::sigmoid(flo z)
 {
         return 1 / (1 + exp(-z));
 }
 
-float neuron::dsigmoid(float z)
+flo neuron::dsigmoid(flo z)
 {
         return sigmoid(z)*(1 - sigmoid(z));
 }
 
-float neuron::activateFunc(vector<float*> input)
+flo neuron::activateFunc(vector<fp> input)
 {
-        float temp = 0;
+        flo temp = 0;
         for (int i = 0; i < (int) input.size(); i++) 
         {
                 temp += Weights[i] * *input[i]; //w.x dot product
@@ -78,7 +78,7 @@ float neuron::activateFunc(vector<float*> input)
         return temp;
 }
 
-float* neuron::resultFunc(vector<float*> input) 
+fp neuron::resultFunc(vector<fp> input) 
 {
         Output = sigmoid(activateFunc(input));
         return  &Output;

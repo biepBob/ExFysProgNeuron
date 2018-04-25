@@ -31,4 +31,4 @@ clean:
 
 #git add files
 gitadd:
-	git add Neuron.cpp Neuron.h main.cpp makefile
+	git add Neuron.cpp Neuron.h main.cpp

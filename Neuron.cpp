@@ -26,7 +26,7 @@ neuron::~neuron()
 void neuron::setWeights(vector<float*> w)
 {
         Weights.resize(w.size());
-	for (int i = 0; i < w.size(); i++)
+	for (int i = 0; i < (int) w.size(); i++)
 	{
 		Weights[i] = *w[i];
 	}
@@ -37,9 +37,14 @@ void neuron::setBias(float* b)
         Bias = *b;
 }
 
-vector<float>* neuron::getWeights()
+vector<float*> neuron::getWeights()
 {
-        return &Weights;
+    vector<float*> TempWeights(Weights.size());
+    for (int i = 0; i < (int) Weights.size(); i++)
+	{
+		TempWeights[i] = &Weights[i];
+	}
+    return TempWeights;
 }
 
 float* neuron::getBias()
@@ -65,7 +70,7 @@ float neuron::dsigmoid(float z)
 float neuron::activateFunc(vector<float*> input)
 {
         float temp = 0;
-        for (int i = 0; i < input.size(); i++) 
+        for (int i = 0; i < (int) input.size(); i++) 
         {
                 temp += Weights[i] * *input[i]; //w.x dot product
         }

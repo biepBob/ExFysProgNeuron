@@ -18,6 +18,8 @@ int main(){
     float bb = 0.7;
     neuron po({&ww[0], &ww[1], &ww[2]}, &bb);
     cout <<*po.resultFunc({&xx,&yy,&zz}) << endl;
+    po.setWeights(po.getWeights());
+    cout <<*po.getWeights()[0] << endl;
 
     return 0;
 }

@@ -15,7 +15,7 @@ public:
 	void setWeights(vector<float*>); //Sets provided weights to vector Weights
 	void setBias(float*); //Sets provided bias to variable Bias
 
-	vector<float>* getWeights(); //get-function to access weights
+	vector<float*> getWeights(); //get-function to access weights
 	float* getBias(); //get-function to access bias
 	const int getNumberOfInputs(); //get-function to access #inputs = size of Weights
 	float sigmoid(float); //Sigmoid function

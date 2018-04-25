@@ -1,6 +1,6 @@
 #include "Neuron.h"
 
-neuron::neuron(vector<float> weights,float bias)
+neuron::neuron(vector<float*> weights,float* bias)
 {
         setWeights(weights);
         setBias(bias);
@@ -23,27 +23,31 @@ neuron::~neuron()
 {
 }
 
-void neuron::setWeights(vector<float> w)
+void neuron::setWeights(vector<float*> w)
 {
-        Weights = w;
+        Weights.resize(w.size());
+	for (int i = 0; i < w.size(); i++)
+	{
+		Weights[i] = *w[i];
+	}
 }
 
-void neuron::setBias(float b)
+void neuron::setBias(float* b)
 {
-        Bias = b;
+        Bias = *b;
 }
 
-vector<float> neuron::getWeights()
+vector<float>* neuron::getWeights()
 {
-        return Weights;
+        return &Weights;
 }
 
-float neuron::getBias()
+float* neuron::getBias()
 {
-        return Bias;
+        return &Bias;
 }
 
-int neuron::getNumberOfInputs()
+const int neuron::getNumberOfInputs()
 {
         return Weights.size();
 }

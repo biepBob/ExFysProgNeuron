@@ -14,7 +14,9 @@ int main(){
     float xx = 0;
     float yy = 1;
     float zz = 1;
-    neuron po({0.4, 0.6, 1}, 0.7);
+    vector<float> ww = {0.4, 0.6, 1};
+    float bb = 0.7;
+    neuron po({&ww[0], &ww[1], &ww[2]}, &bb);
     cout <<*po.resultFunc({&xx,&yy,&zz}) << endl;
 
     return 0;

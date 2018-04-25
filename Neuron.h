@@ -9,15 +9,15 @@ using namespace std;
 
 class neuron{
 public:
-	neuron(vector<float> weights,float bias); //Constructor1, weight provided
+	neuron(vector<float*> weights,float* bias); //Constructor1, weight provided
 	neuron(int); //Constructor2, no weight provided, start of the program
 	~neuron(); //Destructor
-	void setWeights(vector<float>); //Sets provided weights to vector Weights
-	void setBias(float); //Sets provided bias to variable Bias
+	void setWeights(vector<float*>); //Sets provided weights to vector Weights
+	void setBias(float*); //Sets provided bias to variable Bias
 
-	vector<float> getWeights(); //get-function to access weights
-	float getBias(); //get-function to access bias
-	int getNumberOfInputs(); //get-function to access #inputs = size of Weights
+	vector<float>* getWeights(); //get-function to access weights
+	float* getBias(); //get-function to access bias
+	const int getNumberOfInputs(); //get-function to access #inputs = size of Weights
 	float sigmoid(float); //Sigmoid function
 	float dsigmoid(float); //Derivative Sigmoid function
 	float activateFunc(vector <float*>); //Activate function, calls sigmoid

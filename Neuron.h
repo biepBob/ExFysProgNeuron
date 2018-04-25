@@ -9,7 +9,7 @@ using namespace std;
 
 class neuron{
 public:
-	neuron(vector<float> tw,float bias); //Constructor1, weight provided
+	neuron(vector<float> weights,float bias); //Constructor1, weight provided
 	neuron(int); //Constructor2, no weight provided, start of the program
 	~neuron(); //Destructor
 	void setWeights(vector<float>); //Sets provided weights to vector Weights
@@ -21,9 +21,10 @@ public:
 	float sigmoid(float); //Sigmoid function
 	float dsigmoid(float); //Derivative Sigmoid function
 	float activateFunc(vector <float*>); //Activate function, calls sigmoid
-	float resultFunc(vector <float*>); //Calculates the neuron output, calls activateFunc
-	void operator()(vector<float*> pi) { resultFunc(pi); } //Overloading ()
+	float* resultFunc(vector <float*>); //Calculates the neuron output, calls activateFunc
+	void operator()(vector<float*> inputs) { resultFunc(inputs); } //Overloading ()
 protected:
 	vector<float> Weights;
 	float Bias;
+        float Output;
 };

@@ -1,8 +1,8 @@
 #include "Neuron.h"
 
-neuron::neuron(vector<float> tw,float bias)
+neuron::neuron(vector<float> weights,float bias)
 {
-        setWeights(tw);
+        setWeights(weights);
         setBias(bias);
 }
 
@@ -69,8 +69,9 @@ float neuron::activateFunc(vector<float*> input)
         return temp;
 }
 
-float neuron::resultFunc(vector<float*> input) 
+float* neuron::resultFunc(vector<float*> input) 
 {
-        return  sigmoid(activateFunc(input));
+        Output = sigmoid(activateFunc(input));
+        return  &Output;
 }
 

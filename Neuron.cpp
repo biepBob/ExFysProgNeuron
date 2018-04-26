@@ -11,9 +11,10 @@ neuron::neuron(int size)
         Weights.resize(size);
         for (int i = 0; i < size; i++)
         {
-                Weights[i] = rngesus(0,1); //Generate random weights
-                Bias = rngesus(0,1);
+            Weights[i] = rngesus(0,1); //Generate random weights
         }
+        
+        Bias = rngesus(0,1);
 }
 
 

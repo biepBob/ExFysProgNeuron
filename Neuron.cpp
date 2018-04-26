@@ -15,6 +15,7 @@ neuron::neuron(int size)
                 mt19937 gen(rd()); //Mersenne Twister 19937 generator, rng
                 uniform_real_distribution<> dis(0, 1); //uniform probability distribution
                 Weights[i] = dis(gen); //Generate random weights
+                Bias = dis(gen);
         }
 }
 

@@ -1,23 +1,18 @@
-#Jago Coric
-#s0140128
-#makefile
-#Due date: 30/03/2018
-
 SHELL = /bin/bash
 #Compiler
 COMPILER = g++ -g -std=c++11 -Wall
 
 
 
-all: neuron 
+all: neuron
 
-neuron: main.o Neuron.o 
+neuron: main.o  Neuron.o  Neuron.h
 	$(COMPILER) $^ -o $@ 
 
 Neuron.o: Neuron.cpp Neuron.h 
-	$(COMPILER) -c $< 
+	$(COMPILER) -c $<
 
-main.o: main.cpp Neuron.h
+main.o: main.cpp  Neuron.h
 	$(COMPILER) -c $<
 
 
@@ -31,4 +26,4 @@ clean:
 
 #git add files
 gitadd:
-	git add Neuron.cpp Neuron.h main.cpp
+	git add main.cpp Neuron.h Neuron.cpp makefile
